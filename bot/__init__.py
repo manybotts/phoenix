@@ -597,8 +597,7 @@ if len(MDL_TEMPLATE) == 0:
 <b>Story Line:</b> {synopsis}
 
 <a href='{url}'>Read More ...</a>'''
-
-config_dict = {'ANIME_TEMPLATE': ANIME_TEMPLATE,
+            config_dict = {'ANIME_TEMPLATE': ANIME_TEMPLATE,
                'AS_DOCUMENT': AS_DOCUMENT,
                'AUTHORIZED_CHATS': AUTHORIZED_CHATS,
                'AUTO_DELETE_MESSAGE_DURATION': AUTO_DELETE_MESSAGE_DURATION,
@@ -831,4 +830,5 @@ except RuntimeError:
 bot = wztgClient('bot', TELEGRAM_API, TELEGRAM_HASH, bot_token=BOT_TOKEN, workers=1000,
                parse_mode=enums.ParseMode.HTML).start()
 bot_loop = bot.loop
+bot_name = bot.me.username
 scheduler = AsyncIOScheduler(timezone=str(get_localzone()), event_loop=bot_loop)
